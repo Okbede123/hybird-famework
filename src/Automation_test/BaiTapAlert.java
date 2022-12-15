@@ -15,6 +15,8 @@ import java.time.Duration;
 
 public class BaiTapAlert {
     WebDriver driver;
+    
+    
     WebDriverWait waitElement;
     KhoiTaoDriver khoitao = new KhoiTaoDriver();
 
