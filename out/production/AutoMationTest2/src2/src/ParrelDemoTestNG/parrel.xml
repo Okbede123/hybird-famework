@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel = "classes" name = "Facebook" thread-count = "4">
+<!--    chay lan luot parrallel-->
+    <test name = "First Test">
+        <classes>
+
+            <class name = "ParrelDemoTestNG.DemoTestNGParrel_1"/>
+            <class name = "ParrelDemoTestNG.DemoTestNGParrel_2"/>
+        </classes>
+    </test>
+    <test name = "Second Test">
+        <classes>
+            <class name = "ParrelDemoTestNG.DemoTestNGParrel_3"/>
+            <class name = "ParrelDemoTestNG.DemoTestNGParrel_4"/>
+        </classes>
+    </test>
+</suite>

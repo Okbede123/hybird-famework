@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel = "false" name = "admin">
+<!--    <parameter name = "server" value="DEV"></parameter>-->
+
+    <test name = "Run on CHROME browser">
+        <parameter name = "browser" value = "chrome"/>
+        <classes>
+            <class name = "TestNG.DemoTestNgOptional"/>
+        </classes>
+    </test>
+</suite>

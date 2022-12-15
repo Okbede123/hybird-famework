@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" packagePrefix="src2" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <content url="jar://D:/Automation Test BNN/01.Software/selenium-server-standalone-2.53.1.jar!/" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Downloads/test" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-api-4.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-chrome-driver-4.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-chromium-driver-4.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-devtools-v85-4.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-devtools-v104-4.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-devtools-v105-4.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-devtools-v106-4.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-edge-driver-4.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-firefox-driver-4.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-http-4.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-ie-driver-4.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-java-4.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-json-4.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-remote-driver-4.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-safari-driver-4.5.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-support-4.5.0.jar!/" />
+          <root url="file://$USER_HOME$/Downloads/test/lib" />
+          <root url="file://$USER_HOME$/Downloads/test/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$USER_HOME$/Downloads/test" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-api-4.5.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-chrome-driver-4.5.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-chromium-driver-4.5.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-devtools-v85-4.5.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-devtools-v104-4.5.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-devtools-v105-4.5.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-devtools-v106-4.5.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-edge-driver-4.5.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-firefox-driver-4.5.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-http-4.5.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-ie-driver-4.5.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-json-4.5.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-remote-driver-4.5.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-safari-driver-4.5.0-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/test/selenium-support-4.5.0-sources.jar!/" />
+        </SOURCES>
+        <jarDirectory url="file://$USER_HOME$/Downloads/test" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/Downloads/test/lib" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/Downloads/test/lib" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/Downloads/test" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" exported="" name="selenium-java-4.5" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/testng-7.4.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>

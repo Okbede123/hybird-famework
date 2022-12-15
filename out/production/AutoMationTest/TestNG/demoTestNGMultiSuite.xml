@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name = "Run All Suites">
+<!--    <suite-file>-->
+<!--        chay nhieu xml-->
+        <suite-file path = "demoTestNGParameterMultilePage.xml"/>
+        <suite-file path = "demoTestNGParameterMultileServer_2.xml"/>
+<!--    </suite-file>-->
+
+</suite>

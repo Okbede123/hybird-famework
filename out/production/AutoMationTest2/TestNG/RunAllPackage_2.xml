@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel = "classes" name = "Facebook">
+    <test name = "Run Test All Package">
+        <packages>
+<!--            chay 1 package-->
+            <package name = "TestNG"/>
+        </packages>
+    </test>
+
+</suite>
