@@ -59,6 +59,13 @@ public class BaiTapUpLoadFile_AutoIT {
     public void BeforeClass(){
        driver = new FirefoxDriver();
         //driver = new ChromeDriver();
+        
+        
+        
+        
+        
+        
+        
 
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         getjava = (JavascriptExecutor) driver;
