@@ -22,6 +22,9 @@ import java.util.List;
 public class BaiTapActionChuot {
 
     WebDriver driver;
+
+
+
     WebDriverWait waitelement;
     JavascriptExecutor getjava;
     KhoiTaoDriver khoitao = new KhoiTaoDriver();
