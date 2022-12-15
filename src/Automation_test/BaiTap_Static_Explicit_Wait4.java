@@ -15,6 +15,7 @@ public class BaiTap_Static_Explicit_Wait4 {
     WebDriver driver;
     WebDriverWait webDriverWait;
     JavascriptExecutor getjava;
+
     KhoiTaoDriver khoiTaoDriver = new KhoiTaoDriver();
 
     @BeforeClass
