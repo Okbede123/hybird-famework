@@ -18,7 +18,11 @@ public class BaiTapAlert {
     
     
     WebDriverWait waitElement;
+
+
     KhoiTaoDriver khoitao = new KhoiTaoDriver();
+
+
 
     String AuthenChorme = khoitao.getProperty + "\\out\\production\\autoIT\\authen_chrome.exe";
 
