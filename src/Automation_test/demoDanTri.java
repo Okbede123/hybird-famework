@@ -8,6 +8,11 @@ public class demoDanTri {
         System.setProperty("webdrive.chrome.driver","C:\\chromedriver.exe");
         demoDanTri so1 = new demoDanTri();
         so1.getTitle();
+        
+        
+        
+        
+        //test
 
     }
     public void getTitle(){
