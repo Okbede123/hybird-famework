@@ -18,6 +18,7 @@ public class BaiTapDropBox {
         System.setProperty(chomre,tesThu + "\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://rode.com/en/support/where-to-buy");
+        //test
 
     }
     @Test
