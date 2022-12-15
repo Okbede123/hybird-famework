@@ -1,3 +1,5 @@
+package Automation_test;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -8,6 +10,7 @@ public class demoDanTri {
         System.setProperty("webdrive.chrome.driver","C:\\chromedriver.exe");
         demoDanTri so1 = new demoDanTri();
         so1.getTitle();
+
 
     }
     public void getTitle(){
