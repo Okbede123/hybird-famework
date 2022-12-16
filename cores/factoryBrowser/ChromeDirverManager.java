@@ -1,4 +1,4 @@
-package src2.actions.factoryBrowser;
+package src2.cores.factoryBrowser;
 
 public class ChromeDirverManager {
 }
