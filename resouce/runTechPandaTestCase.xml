@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite parallel = "falses" name = "Tech Panda">
-    <test name = "Run on Firefox browser">
+<suite parallel = "classes" name = "Facebook">
+    <test name = "Run Test All Package">
         <classes>
-            <class name = "techpanda_farmework.Account_01_Register"/>
+            <class name = "testcases.companda.Level_01_Dont_Repeat_YourSelf" />
         </classes>
     </test>
+
 </suite>

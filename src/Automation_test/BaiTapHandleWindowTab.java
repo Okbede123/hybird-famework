@@ -27,7 +27,7 @@ public class BaiTapHandleWindowTab {
 
     }
 
-   // @Test
+    @Test
     public void TC_01_Windows_Tab(){
 
         //vào url cha
@@ -52,7 +52,9 @@ public class BaiTapHandleWindowTab {
 
         String getidgoolge = driver.getWindowHandle();
 
-        SwitchTab(getidgoolge);
+        //SwitchTab(getidgoolge);
+        switchWindowByID();
+        System.out.println(driver.getTitle());
 
     }
 
@@ -127,6 +129,16 @@ public class BaiTapHandleWindowTab {
                 //đến title nào có title mong muốn thì dừng
                 //System.out.println(driver.getTitle());
                 break;
+            }
+        }
+    }
+
+    public void switchWindowByID(){
+        String Idpresent = driver.getWindowHandle();
+        Set<String> allWindowID = driver.getWindowHandles();
+        for (String IDwindow : allWindowID) {
+            if(!IDwindow.equals(Idpresent)){
+                driver.switchTo().window(IDwindow);
             }
         }
     }

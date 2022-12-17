@@ -4,6 +4,10 @@ import java.util.Random;
 
 public class KhoiTaoDriver {
 
+    public static KhoiTaoDriver getInstanceDriver(){
+        return new KhoiTaoDriver();
+    }
+
         String khoiTaoChomre = "webdrive.chrome.driver";
 
         String KhoiTaoFireFox = "webdriver.gecko.driver";

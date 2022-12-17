@@ -1,5 +1,6 @@
 package Automation_test;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,13 +10,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import src2.cores.commons.BasePage;
 
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class BaiTapDropDown {
+public class BaiTapDropDown extends BasePage {
     KhoiTaoDriver callDriver = new KhoiTaoDriver();
+
+    BasePage basePage;
+
     WebDriver driver;
     // là 1 dạng wait , chờ các trạng thái của element
     WebDriverWait explicitWait;
@@ -25,6 +30,8 @@ public class BaiTapDropDown {
 
         System.setProperty(callDriver.khoiTaoChomre,callDriver.getProperty + callDriver.source);
         driver = new ChromeDriver();
+
+        basePage = new BasePage();
 
         // chờ cho element đc hiển thị theo trạng thái
         explicitWait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -60,24 +67,36 @@ public class BaiTapDropDown {
             }
         }
     }
-    @Test
+    //@Test
     public void TestHam(){
         driver.get("https://jqueryui.com/resources/demos/selectmenu/default.html");
-        checkItem("//span[@id = 'number-button']","//ul[@id = 'number-menu']//li//div","5");
+        checkItem2("//span[@id = 'number-button']","//ul[@id = 'number-menu']//li//div","5");
         Assert.assertEquals(driver.findElement(By.xpath("//span[@id = 'number-button']//span[@class = 'ui-selectmenu-text']")).getText(),"5");
         //callDriver.SleepInTime(3);
-        checkItem("//span[@id = 'number-button']","//ul[@id = 'number-menu']//li//div","16");
+        checkItem2("//span[@id = 'number-button']","//ul[@id = 'number-menu']//li//div","16");
         Assert.assertEquals(driver.findElement(By.xpath("//span[@id = 'number-button']//span[@class = 'ui-selectmenu-text']")).getText(),"16");
         //callDriver.SleepInTime(3);
-        checkItem("//span[@id = 'number-button']","//ul[@id = 'number-menu']//li//div","3");
+        checkItem2("//span[@id = 'number-button']","//ul[@id = 'number-menu']//li//div","3");
         Assert.assertEquals(driver.findElement(By.xpath("//span[@id = 'number-button']//span[@class = 'ui-selectmenu-text']")).getText(),"3");
         //callDriver.SleepInTime(3);
 
 
     }
 
+    @Test
+    public void TestHam1(){
+       // driver.get("https://jqueryui.com/resources/demos/selectmenu/default.html");
+        basePage.openUrl(driver,"https://jqueryui.com/resources/demos/selectmenu/default.html");
+        //checkItem2("//span[@id = 'number-button']","//ul[@id = 'number-menu']//li//div","5");
+        checkItem(driver,"//span[@id = 'number-button']","//ul[@id = 'number-menu']//li//div","5");
+        //checkItem(driver,"//span[@id = 'number-button']","//ul[@id = 'number-menu']//li//div","5");
+        Assert.assertEquals(driver.findElement(By.xpath("//span[@id = 'number-button']//span[@class = 'ui-selectmenu-text']")).getText(),"5");
+
+
+    }
+
     //viết lại thành hàm
-    public void checkItem(String ParentXpath,String ChildXpath, String ExpItem){
+    public void checkItem2(String ParentXpath,String ChildXpath, String ExpItem){
 
         driver.findElement(By.xpath(ParentXpath)).click();
         Sleepin(4);
@@ -91,6 +110,20 @@ public class BaiTapDropDown {
             }
         }
     }
+
+    public void checkItem(WebDriver driver, String ParentXpath,String ChildXpath, String ExpItem){
+        clickToElement(driver,By.xpath(ParentXpath));
+
+        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(ChildXpath)));
+
+        List<WebElement>luuTru = driver.findElements(By.xpath(ChildXpath));
+        for (WebElement get: luuTru) {
+           if(searchElementByElement(driver,get).getText().equals(ExpItem)) {
+               clickToElementByWebelement(driver,get);
+            }
+        }
+    }
+
 
     public void Sleepin(long num){
         try {

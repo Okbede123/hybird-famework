@@ -1,4 +1,4 @@
 package src2.actions.pageObjects;
 
-public class RegisterPageObject {
+public class MyDashBoardPageObject {
 }

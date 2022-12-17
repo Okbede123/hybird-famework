@@ -1,9 +1,18 @@
+package Automation_test;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class DemoMap {
+
+
+
     public static void main(String[] args) {
+        KhoiTaoDriver khoiTaoDriver;
+        khoiTaoDriver = KhoiTaoDriver.getInstanceDriver();
+        khoiTaoDriver.SleepInTime(3);
+
         ArrayList<Integer> so1 = new ArrayList<>();
         so1.add(5);
         so1.add(8);
