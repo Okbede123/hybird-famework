@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel = "classes" name = "Facebook">
+    <test name = "Run Test All Package">
+        <classes>
+            <class name = "testcases.companda.Level_02_ApplyPageBase_Part_1" />
+        </classes>
+    </test>
+
+</suite>
