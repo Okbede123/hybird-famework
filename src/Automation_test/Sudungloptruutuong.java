@@ -1,9 +1,8 @@
-public class Sudungloptruutuong extends LopTruuTuong {
+package Automation_test;
 
-    @Override
-    public void hienthi() {
-        System.out.println("meo");
-    }
+public class Sudungloptruutuong {
+
+
 
     public void GetNameTest(){
         String t = "okbede";
@@ -13,7 +12,7 @@ public class Sudungloptruutuong extends LopTruuTuong {
 
     public static void main(String[] args) {
         Sudungloptruutuong khoitao = new Sudungloptruutuong();
-        khoitao.hienthi();
+
         khoitao.GetNameTest();
     }
 

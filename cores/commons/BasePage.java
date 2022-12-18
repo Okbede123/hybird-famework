@@ -168,8 +168,19 @@ public class BasePage {
         element1.sendKeys(valueInPut);
     }
 
+    public void sendKeyToElementXpath(WebDriver driver,String element,String valueInPut){
+
+        WebElement element1 = searchElementByXpath(driver,element);
+        element1.clear();
+        element1.sendKeys(valueInPut);
+    }
+
     public String getElementText(WebDriver driver,By element){
         return searchElementBy(driver,element).getText();
+    }
+
+    public String getElementTextByXpath(WebDriver driver,String element){
+        return searchElementByXpath(driver,element).getText();
     }
 
     public WebElement searchElementBy(WebDriver driver, By element){
