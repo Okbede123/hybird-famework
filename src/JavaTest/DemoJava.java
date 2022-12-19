@@ -1,3 +1,5 @@
+package JavaTest;
+
 public class DemoJava {
 
     String tuoi;

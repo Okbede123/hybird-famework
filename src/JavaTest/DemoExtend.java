@@ -1,3 +1,5 @@
+package JavaTest;
+
 public class DemoExtend extends DemoJava {
 
     String hoten;
