@@ -5,12 +5,13 @@ import org.openqa.selenium.WebDriver;
 import src2.cores.commons.BasePage;
 import src2.interrface.UI.LoginPageUI;
 
-public class LoginPageObject extends BasePage {
+public class UserLoginPageObject extends BasePage {
 
     WebDriver driver;
 
 
-    public LoginPageObject(WebDriver driver){
+
+    public UserLoginPageObject(WebDriver driver){
         this.driver = driver;
     }
 
@@ -33,6 +34,20 @@ public class LoginPageObject extends BasePage {
     public void clickToLogin() {
         waitElementclick(driver,LoginPageUI.LOGIN_BUTTON);
         clickToElement(driver,By.xpath(LoginPageUI.LOGIN_BUTTON));
+    }
+
+    public MyDashBoardPageObject clickToLoginMyDoashBoard() {
+        waitElementclick(driver,LoginPageUI.LOGIN_BUTTON);
+        clickToElement(driver,By.xpath(LoginPageUI.LOGIN_BUTTON));
+        return new MyDashBoardPageObject(driver);
+    }
+
+
+
+    public MyDashBoardPageObject getMyDashBoard(WebDriver driver){
+        waitElementclick(driver,LoginPageUI.LOGIN_BUTTON);
+        clickToElement(driver,By.xpath(LoginPageUI.LOGIN_BUTTON));
+        return PageGeneratorManager.getMyDashBoard(driver);
     }
 
     public void clickToLoginByXpath() {
