@@ -45,7 +45,7 @@ public class BaseTest {
         } else if (BrowserList.valueOf(browser.toUpperCase())== BrowserList.CHROME) {
             driver = new ChromeDriver();
         }
-        driver.get("http://live.techpanda.org/index.php/");
+        driver.get(GlobalConstants.USER_URL);
         return driver;
     }
 

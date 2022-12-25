@@ -15,9 +15,20 @@ public class GlobalConstants {
     public static final int SHORT_TIMEOUT = 10;
     public static final int LONG_TIMEOUT = 30;
 
-    public static final String UPLOAD_PATH = PROJECT_PATH + "\\out\\" + "\\UpLoadFiles";
+    public static final String UPLOAD_PATH = PROJECT_PATH + "\\out\\" + "\\UpLoadFiles\\";
 
-    public static void main(String[] args) {
-        System.out.println(UPLOAD_PATH);
-    }
+    public static final String UPLOAD_LOCATOR = "xpath=//input[@type = 'file']";
+
+    //retry case failed
+    public static final int RETRY_NUMBER = 2;
+
+    //browser log
+    public static final String BROWSER_LOG_PATH = PROJECT_PATH + "\\out\\" + "\\browserLogs";
+    public static final String BROWSER_EXTENTSION_PATH = PROJECT_PATH + "\\out\\" + "\\browserExtension";
+
+    //html report folder
+
+    public static final String REPORTNG_PATH = PROJECT_PATH + "\\out\\" + "\\htmlReportNG";
+    public static final String EXTENT_PATH = PROJECT_PATH + "\\out\\" + "\\htmlExtent";
+    public static final String ALLURE_PATH = PROJECT_PATH + "\\out\\" + "\\htmlAllure";
 }

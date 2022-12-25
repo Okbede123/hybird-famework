@@ -260,6 +260,11 @@ public class BasePage {
         return allelement;
     }
 
+    public List<WebElement> getAllElementLocator(WebDriver driver,String element){
+        List<WebElement> allelement = driver.findElements(getByLocator(element));
+        return allelement;
+    }
+
     public void selectByTextDropDown(WebDriver driver,String element, String value){
 
        Select select = new Select(searchElementByXpath(driver,element));
@@ -267,7 +272,6 @@ public class BasePage {
     }
 
     public void selectByTextDropDownLocator(WebDriver driver,String element, String value, String...locator){
-
         Select select = new Select(searchElementByLocator(driver,castRestParameter(element,locator)));
         select.selectByVisibleText(value);
     }
@@ -326,8 +330,16 @@ public class BasePage {
        return getAllElement(driver,locator).size();
     }
 
+    public int getListSizeElementLocator(WebDriver driver,String locator,String...values){
+        return getAllElementLocator(driver,castRestParameter(locator,values)).size();
+    }
+
     public boolean isDisplayElement(WebDriver driver,String locator){
         return searchElementByXpath(driver,locator).isDisplayed();
+    }
+
+    public boolean isDisplayElementLocator(WebDriver driver,String locator,String...value){
+        return searchElementByLocator(driver,castRestParameter(locator,value)).isDisplayed();
     }
 
     public boolean isEnableElement(WebDriver driver,String locator){
@@ -366,6 +378,10 @@ public class BasePage {
 
     public void sendKeyBoardToElement(WebDriver driver, String target, Keys key){
         new Actions(driver).sendKeys(searchElementByXpath(driver,target),key).perform();
+    }
+
+    public void sendKeyBoardToElementLocator(WebDriver driver, String target, Keys key,String...values){
+        new Actions(driver).sendKeys(searchElementByLocator(driver,castRestParameter(target,values)),key).perform();
     }
 
     public Object executeForBrowser(WebDriver driver, String javaScript) {
@@ -484,6 +500,12 @@ public class BasePage {
         searchElementByLocator(driver,castRestParameter(locator,values)).click();
     }
 
+    public void UploadMultipleFiles(WebDriver driver, String...nameFiles){
+        for (String nameOfFile:nameFiles) {
+            sendKeyToElements(driver,GlobalConstants.UPLOAD_LOCATOR,GlobalConstants.UPLOAD_PATH+nameOfFile);
+        }
+    }
+
     public long SleepInTime(long num){
         try {
             Thread.sleep(num*1000);
@@ -494,5 +516,5 @@ public class BasePage {
     }
 
 
-    private long timeOut = 30;
+    private long timeOut = GlobalConstants.LONG_TIMEOUT;
 }
