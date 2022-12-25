@@ -16,7 +16,7 @@ public class BaiTapFluentWait_5 {
     //khoi tao fluent wait dau vao WebElement
     FluentWait<WebElement> fluentWait;
 
-    //test
+    //test1
     //khoi tao fluent wait dau vao webdriver
     FluentWait<WebDriver> fluentWaitdriver;
     WebDriverWait webDriverWait;
