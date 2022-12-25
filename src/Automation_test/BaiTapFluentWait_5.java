@@ -21,7 +21,7 @@ public class BaiTapFluentWait_5 {
     //test1
     //khoi tao fluent wait dau vao webdriver
 
-    //test nhanh ducauotest 3
+    //test nhanh master
     FluentWait<WebDriver> fluentWaitdriver;
     WebDriverWait webDriverWait;
     JavascriptExecutor getjava;
