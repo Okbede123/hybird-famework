@@ -13,9 +13,9 @@ import java.util.function.Function;
 
 public class BaiTapFluentWait_5 {
     WebDriver driver;
+
     //khoi tao fluent wait dau vao WebElement
     FluentWait<WebElement> fluentWait;
-
 
     //khoi tao fluent wait dau vao webdriver
     FluentWait<WebDriver> fluentWaitdriver;
