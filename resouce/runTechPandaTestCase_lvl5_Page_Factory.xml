@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel = "classes" name = "Facebook">
+    <test name = "Run On Chrome">
+        <parameter name = "browser" value = "chrome"/>
+        <classes>
+            <class name = "testcases.companda.Level_05_Selenium_Page_Factory" />
+        </classes>
+    </test>
+
+</suite>

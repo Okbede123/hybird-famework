@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel = "false" name = "Tech Panda">
+    <parameter name = "Url" value = "https://blueimp.github.io/jQuery-File-Upload/" />
+
+    <test name = "Run On Chrome">
+        <parameter name = "browser" value = "firefox"/>
+        <classes>
+            <class name = "JqueryUploadFiles.Level_13_UploadFiles" />
+        </classes>
+    </test>
+
+</suite>

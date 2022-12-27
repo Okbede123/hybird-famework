@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel = "false" name = "Tech Panda">
+<!--    <parameter name = "Url" value = "https://blueimp.github.io/jQuery-File-Upload/" />-->
+    <listeners>
+        <listener class-name = "src2.cores.commons.MethodListener" />
+    </listeners>
+
+    <test name = "Run On Chrome">
+        <parameter name = "browser" value = "firefox"/>
+        <classes>
+            <class name = "testcases.companda.Level_14_Assert_Verify" />
+        </classes>
+    </test>
+
+</suite>

@@ -1,17 +1,25 @@
 package src2.cores.commons;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.Reporter;
 import src2.actions.pageObjects.UserHomePageObject;
 
 import java.util.Random;
 
 public class BaseTest {
-
     WebDriver driver;
+
+   protected final Log log;
+    public BaseTest(){
+        log = LogFactory.getLog(getClass());
+    }
 
 
 
@@ -126,5 +134,44 @@ public class BaseTest {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public boolean assertTrue(boolean actual){
+        boolean status = true;
+        try {
+            Assert.assertTrue(actual);
+        }catch (Throwable e){
+            status = false;
+            System.out.println(e);
+            VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+            Reporter.getCurrentTestResult().setThrowable(e);
+        }
+        return status;
+    }
+
+    public boolean assertEqual(Object actual,Object expected){
+        boolean check = true;
+        try {
+            Assert.assertEquals(actual,expected);
+        }catch (Throwable e){
+            VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+            Reporter.getCurrentTestResult().setThrowable(e);
+            check = false;
+        }
+        return check;
+    }
+
+    public boolean assertFalse(boolean actual){
+        boolean status;
+        try {
+            Assert.assertFalse(actual);
+            status = false;
+        }catch (Throwable e){
+            status = true;
+            System.out.println(e);
+            VerificationFailures.getFailures().addFailureForTest(Reporter.getCurrentTestResult(), e);
+            Reporter.getCurrentTestResult().setThrowable(e);
+        }
+        return status;
     }
 }

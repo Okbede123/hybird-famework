@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel = "false" name = "Tech Panda">
+<!--    <parameter name = "userUrl" value = "http://live.techpanda.org/index.php/" />-->
+<!--    <parameter name = "adminUrl" value = "http://live.techpanda.org/index.php/backendlogin" />-->
+    <test name = "Run On Chrome">
+        <parameter name = "browser" value = "chrome"/>
+        <classes>
+            <class name = "testcases.companda.Level_11_Global_Contstant" />
+        </classes>
+    </test>
+
+</suite>
