@@ -14,7 +14,7 @@ import src2.actions.pageObjects.UserHomePageObject;
 import java.util.Random;
 
 public class BaseTest {
-    WebDriver driver;
+    private WebDriver driver;
 
    protected final Log log;
     public BaseTest(){
@@ -173,5 +173,10 @@ public class BaseTest {
             Reporter.getCurrentTestResult().setThrowable(e);
         }
         return status;
+    }
+
+
+    public WebDriver getDriver(){
+        return this.driver;
     }
 }

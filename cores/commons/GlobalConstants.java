@@ -28,7 +28,7 @@ public class GlobalConstants {
 
     //html report folder
 
-    public static final String REPORTNG_PATH = PROJECT_PATH + "\\out\\" + "\\htmlReportNG";
+    public static final String REPORTNG_PATH = PROJECT_PATH + "\\out\\" + "\\reportNGScreenshot\\";
     public static final String EXTENT_PATH = PROJECT_PATH + "\\out\\" + "\\htmlExtent";
     public static final String ALLURE_PATH = PROJECT_PATH + "\\out\\" + "\\htmlAllure";
 }
