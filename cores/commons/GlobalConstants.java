@@ -31,4 +31,6 @@ public class GlobalConstants {
     public static final String REPORTNG_PATH = PROJECT_PATH + "\\out\\" + "\\reportNGScreenshot\\";
     public static final String EXTENT_PATH = PROJECT_PATH + "\\out\\" + "\\htmlExtent";
     public static final String ALLURE_PATH = PROJECT_PATH + "\\out\\" + "\\htmlAllure";
+
+    public static final String JAVA_VERSION = System.getProperty("java.version");
 }

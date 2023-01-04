@@ -9,8 +9,10 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.BeforeSuite;
 import src2.actions.pageObjects.UserHomePageObject;
 
+import java.io.File;
 import java.util.Random;
 
 public class BaseTest {
@@ -179,4 +181,29 @@ public class BaseTest {
     public WebDriver getDriver(){
         return this.driver;
     }
+
+
+    @BeforeSuite
+    public void beforeSuite(){
+        deleteFilesInReportNGFolder();
+    }
+
+    private void deleteFilesInReportNGFolder(){
+        try {
+            File file = new File(GlobalConstants.REPORTNG_PATH);
+            //lấy ra tất cả list files
+            File[] listOfFiles = file.listFiles();
+            for (int i = 0; i < listOfFiles.length; i++) {
+                //nếu cái nào la file thì xóa
+                if(listOfFiles[i].isFile())
+                    new File(listOfFiles[i].toString()).delete();
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+//    protected WebDriver getDriverInstance() {
+//
+//    }
 }
