@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel = "false" name = "Tech Panda total">
+
+    <suite-files>
+        <suite-file path = "runTechPandaTestCase_lvl15_Log.xml"></suite-file>
+        <suite-file path = "runTechPandaTestCase_lvl15_Log_ReportNG.xml"></suite-file>
+    </suite-files>
+
+    <listeners>
+        <listener class-name = "src2.cores.commons.MethodListener"></listener>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+    </listeners>
+
+
+</suite>
