@@ -14,6 +14,7 @@ import src2.actions.pageObjects.UserHomePageObject;
 
 import java.io.File;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     private WebDriver driver;
@@ -94,7 +95,7 @@ public class BaseTest {
                 break;
             }
         }
-        //getHomePage(driver);
+        driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
         driver.get(url);
         return driver;
     }

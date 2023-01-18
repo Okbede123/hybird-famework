@@ -1,8 +1,11 @@
 package src2.actions.pageObjects;
 
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import src2.cores.commons.BasePage;
 import src2.interrface.UI.HomePageUI;
+
+import java.util.Set;
 
 public class UserHomePageObject extends BasePage {
 
@@ -15,6 +18,10 @@ public class UserHomePageObject extends BasePage {
     public void clickToMyAccount() {
         waitElementclick(driver, HomePageUI.MY_ACCOUNT_LINK);
         clickToElementByXpath(driver,HomePageUI.MY_ACCOUNT_LINK);
+    }
+
+    public void addCookieLogin(Set<Cookie> cookies){
+       addCookies(driver,cookies);
     }
 
     public UserLoginPageObject ClickgetloginPageObject(WebDriver driver){

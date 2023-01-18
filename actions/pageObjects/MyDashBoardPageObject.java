@@ -1,8 +1,11 @@
 package src2.actions.pageObjects;
 
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import src2.actions.pageObjects.pageObjectNavigation.SideBarAccountPageObject;
 import src2.interrface.UI.MyDashBoardUI;
+
+import java.util.Set;
 
 public class MyDashBoardPageObject extends SideBarAccountPageObject {
     WebDriver driver;
@@ -21,6 +24,10 @@ public class MyDashBoardPageObject extends SideBarAccountPageObject {
     public boolean loginDashBoardDisplay() {
         waitElementVisibility(driver, MyDashBoardUI.CONTACT_INFO_TEXT);
         return isDisplayElement(driver,MyDashBoardUI.CONTACT_INFO_TEXT);
+    }
+
+    public Set<Cookie> getCookiesLogin(){
+       return getCookies(driver);
     }
 
 

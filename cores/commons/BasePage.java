@@ -15,6 +15,7 @@ import src2.interrface.UI.AdminUI.AdminBasePageUI;
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 
 //các hàm thao tác vs browser
@@ -174,7 +175,7 @@ public class BasePage {
     }
 
     public void sendKeyToElements(WebDriver driver,String element,String valueInPut,String... values){
-
+        System.out.println(castRestParameter(element,values));
         WebElement element1 = searchElementByLocator(driver,castRestParameter(element,values));
         element1.clear();
         element1.sendKeys(valueInPut);
@@ -234,7 +235,6 @@ public class BasePage {
      By locatorcut = null;
 
         if(locator.startsWith("ID=") || locator.startsWith("Id=") || locator.startsWith("iD=") || locator.startsWith("id=")){
-            //return By.id(locator.substring(3));
             locatorcut = By.id(locator.substring(3));
         }
         else if(locator.startsWith("name=") || locator.startsWith("Name=") || locator.startsWith("NAME=")){
@@ -333,13 +333,36 @@ public class BasePage {
     public int getListSizeElementLocator(WebDriver driver,String locator,String...values){
         return getAllElementLocator(driver,castRestParameter(locator,values)).size();
     }
-
+    //element in dom
     public boolean isDisplayElement(WebDriver driver,String locator){
         return searchElementByXpath(driver,locator).isDisplayed();
     }
 
+    //element in dom
     public boolean isDisplayElementLocator(WebDriver driver,String locator,String...value){
         return searchElementByLocator(driver,castRestParameter(locator,value)).isDisplayed();
+    }
+
+
+    //element not in dom
+    public boolean isElementUndisplayed(WebDriver driver, String locator){
+        setImplicityTime(driver,shortTimeOut);
+        if(getAllElementLocator(driver,locator).size() == 0){
+            setImplicityTime(driver,timeOut);
+            System.out.println("element not in DOM");
+            return true;
+        }
+        else if(getAllElementLocator(driver,locator).size() > 0 && !getAllElementLocator(driver,locator).get(0).isDisplayed()){
+            setImplicityTime(driver,timeOut);
+            System.out.println("element in dom but not visibilty / display");
+            return true;
+        }
+        else {
+            System.out.println("element in dom and displayed");
+            setImplicityTime(driver,timeOut);
+            return false;
+        }
+
     }
 
     public boolean isEnableElement(WebDriver driver,String locator){
@@ -462,6 +485,13 @@ public class BasePage {
         new WebDriverWait(driver,Duration.ofSeconds(timeOut)).until(ExpectedConditions.invisibilityOfElementLocated(getByLocator(castRestParameter(locator,values))));
     }
 
+    public void waitElementInvisibiltyLocatorsNotInDom(WebDriver driver, String locator,String... values){
+        //vì wait ảnh hưởng bởi impli nên set cả implicitytime luôn
+        setImplicityTime(driver,shortTimeOut);
+        new WebDriverWait(driver,Duration.ofSeconds(shortTimeOut)).until(ExpectedConditions.invisibilityOfElementLocated(getByLocator(castRestParameter(locator,values))));
+        setImplicityTime(driver,timeOut);
+    }
+
 
     public void waitElementclick(WebDriver driver, String locator){
         new WebDriverWait(driver,Duration.ofSeconds(timeOut)).until(ExpectedConditions.elementToBeClickable(getByXpath(locator)));
@@ -469,6 +499,11 @@ public class BasePage {
 
     public void waitElementclickLocator(WebDriver driver, String locator,String...values){
         new WebDriverWait(driver,Duration.ofSeconds(timeOut)).until(ExpectedConditions.elementToBeClickable(getByLocator(castRestParameter(locator,values))));
+    }
+
+    public void waitElementStaless(WebDriver driver,String locator){
+        WebElement element = searchElementByLocator(driver,locator);
+        new WebDriverWait(driver,Duration.ofSeconds(timeOut)).until(ExpectedConditions.stalenessOf(element));
     }
 
     public FooterContainPageObject getFooterContainPage(WebDriver driver){
@@ -497,6 +532,7 @@ public class BasePage {
     }
 
     public void clickToElements(WebDriver driver, String locator, String... values){
+        waitElementclickLocator(driver,castRestParameter(locator,values));
         searchElementByLocator(driver,castRestParameter(locator,values)).click();
     }
 
@@ -504,6 +540,10 @@ public class BasePage {
         for (String nameOfFile:nameFiles) {
             sendKeyToElements(driver,GlobalConstants.UPLOAD_LOCATOR,GlobalConstants.UPLOAD_PATH+nameOfFile);
         }
+    }
+
+    public void setImplicityTime(WebDriver driver, long timeout){
+        driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
     }
 
     public long SleepInTime(long num){
@@ -515,6 +555,18 @@ public class BasePage {
         return num;
     }
 
+    public Set<Cookie> getCookies(WebDriver driver){
+        return driver.manage().getCookies();
+    }
+
+    public void addCookies(WebDriver driver, Set<Cookie> cookies){
+        for (Cookie cookie:cookies) {
+            driver.manage().addCookie(cookie);
+            driver.navigate().refresh();
+        }
+    }
+
 
     private long timeOut = GlobalConstants.LONG_TIMEOUT;
+    private long shortTimeOut = GlobalConstants.SHORT_TIMEOUT;
 }
