@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel = "false" name = "Tech Panda 1">
+
+    <listeners>
+        <listener class-name = "src2.cores.commons.MethodListener"></listener>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+    </listeners>
+
+    <test name = "Run On Chrome">
+        <parameter name = "browser" value = "chrome"/>
+        <classes>
+            <class name = "testcases.pandaCookies.Commons_Logins" />
+            <class name = "testcases.pandaCookies.Payment_Checkout_2" />
+            <class name = "testcases.pandaCookies.Payment_Order_Product" />
+        </classes>
+    </test>
+
+</suite>

@@ -176,7 +176,7 @@ public class Level_08_Page_Navigate extends BaseTest {
         //tat ca cac  ham ke thua basepage co the su dung cac ham cua basepage
        aboutUsPageObject = myOrderPageObject.getFooterContainPage(driver).getAboutUs();
        searchTermPageObject = aboutUsPageObject.getSearhTerms();
-       myAccountPageObject = searchTermPageObject.getMyAccount();
+       myAccountPageObject = searchTermPageObject.getMyAccountLogged();
 
 
     }

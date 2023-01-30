@@ -1,10 +1,7 @@
 package src2.actions.pageObjects.pageObjectNavigation;
 
 import org.openqa.selenium.WebDriver;
-import src2.actions.pageObjects.AboutUsPageObject;
-import src2.actions.pageObjects.MyAccountPageObject;
-import src2.actions.pageObjects.PageGeneratorManager;
-import src2.actions.pageObjects.SearchTermPageObject;
+import src2.actions.pageObjects.*;
 import src2.cores.commons.BasePage;
 import src2.interrface.UI.FooterContainerPageUI;
 
@@ -22,10 +19,16 @@ public class FooterContainPageObject extends BasePage {
         return PageGeneratorManager.getAboutUs(driver);
     }
 
-    public MyAccountPageObject getMyAccount(){
+    public MyAccountPageObject getMyAccountLogged(){
         waitElementVisibility(driver,FooterContainerPageUI.MY_ACCOUNT_LOCATOR);
         clickToElementByXpath(driver,FooterContainerPageUI.MY_ACCOUNT_LOCATOR);
         return PageGeneratorManager.getMyAccount(driver);
+    }
+
+    public UserLoginPageObject getMyAccountNotLogged(){
+        waitElementVisibility(driver,FooterContainerPageUI.MY_ACCOUNT_LOCATOR);
+        clickToElementByXpath(driver,FooterContainerPageUI.MY_ACCOUNT_LOCATOR);
+        return PageGeneratorManager.getLoginPageUser(driver);
     }
 
     public SearchTermPageObject getSearhTerms(){

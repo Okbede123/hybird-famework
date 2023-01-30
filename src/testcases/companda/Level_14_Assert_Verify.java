@@ -44,7 +44,11 @@ public class Level_14_Assert_Verify extends BaseTest {
 
         //falied
         assertEqual(userLoginPageObject.getEmailAdressEmptyMessageError(),"This is a required field....");
-        assertEqual(userLoginPageObject.getPassWordAdressEmptyMessageError(),"This is a required field.");
+        assertEqual(userLoginPageObject.getPassWordAdressEmptyMessageError(),"This is a required field.3");
+
+//        Assert.assertEquals(userLoginPageObject.getEmailAdressEmptyMessageError(),"This is a required field....");
+//        Assert.assertEquals(userLoginPageObject.getPassWordAdressEmptyMessageError(),"This is a required field.f");
+
     }
 
     @Test

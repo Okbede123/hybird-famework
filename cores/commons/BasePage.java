@@ -566,6 +566,36 @@ public class BasePage {
         }
     }
 
+    /**function component dùng chung**/
+    public void enterToTextBoxById(WebDriver driver,String valueInput,String...valuesToElement){
+        waitElementVisibilityLocators(driver,AdminBasePageUI.DYNAMIC_TEXTBOX_BY_ID,valuesToElement);
+        sendKeyToElements(driver,AdminBasePageUI.DYNAMIC_TEXTBOX_BY_ID,valueInput,valuesToElement);
+    }
+
+    public void clickToButtonByTitle(WebDriver driver,String nameValue){
+        waitElementVisibilityLocators(driver,AdminBasePageUI.DYNAMIC_BUTTON_TITLE,nameValue);
+        clickToElements(driver,AdminBasePageUI.DYNAMIC_BUTTON_TITLE,nameValue);
+    }
+
+    public String getFieldErrorById(WebDriver driver,String feildId){
+        waitElementVisibilityLocators(driver,AdminBasePageUI.DYNAMIC_FIELD_ERROR_MESSAGE_BY_ID,feildId);
+       return getElementTextLocator(driver,AdminBasePageUI.DYNAMIC_FIELD_ERROR_MESSAGE_BY_ID,feildId);
+    }
+
+    public String getPageError(WebDriver driver){
+        waitElementVisibilityLocators(driver,AdminBasePageUI.PAGE_ERROR_MESSAGE);
+        return getElementTextLocator(driver,AdminBasePageUI.PAGE_ERROR_MESSAGE);
+    }
+
+    public String getPageSuccess(WebDriver driver){
+        return getElementTextLocator(driver,AdminBasePageUI.PAGE_SUCCESS_MESSAGE);
+    }
+
+    public void selectDropDownById(WebDriver driver,String dropDownId,String dropDownItem){
+        waitElementclickLocator(driver,AdminBasePageUI.DYNAMIC_DROPDOWN_BY_ID,dropDownId);
+        selectByTextDropDownLocator(driver,AdminBasePageUI.DYNAMIC_DROPDOWN_BY_ID,dropDownItem,dropDownId);
+    }
+
 
     private long timeOut = GlobalConstants.LONG_TIMEOUT;
     private long shortTimeOut = GlobalConstants.SHORT_TIMEOUT;
