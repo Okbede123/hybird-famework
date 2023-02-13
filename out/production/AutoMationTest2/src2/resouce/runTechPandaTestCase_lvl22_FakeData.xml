@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel = "false" name = "Tech Panda 1">
+
+
+    <listeners>
+        <listener class-name = "src2.cores.commons.MethodListener"></listener>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+    </listeners>
+
+    <parameter name = "url" value="https://www.saucedemo.com/inventory.html"/>
+
+    <test name = "Run On Chrome">
+        <parameter name = "browser" value = "chrome"/>
+        <classes>
+            <class name = "testcases.companda.Level_22_FakerData" />
+        </classes>
+    </test>
+
+</suite>

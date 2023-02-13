@@ -14,4 +14,6 @@ public class AdminBasePageUI {
     public static final String PAGE_SUCCESS_MESSAGE ="xpath=//li[@class='success-msg']//span";
 
     public static final String DYNAMIC_DROPDOWN_BY_ID ="xpath=//select[@id='%s']";
+
+    public static final String BUTTON_BY_SPAN = "xpath=//span[text() ='%s']";
 }

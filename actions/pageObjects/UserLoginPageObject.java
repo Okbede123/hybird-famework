@@ -3,6 +3,7 @@ package src2.actions.pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import src2.cores.commons.BasePage;
+import src2.interrface.UI.AdminUI.AdminBasePageUI;
 import src2.interrface.UI.LoginPageUI;
 
 public class UserLoginPageObject extends BasePage {
@@ -89,5 +90,10 @@ public class UserLoginPageObject extends BasePage {
     public String WrongPassOrEmail(){
         waitElementVisibility(driver,LoginPageUI.PASSWORD_OR_EMAIL_WRONG);
         return getElementTextByXpath(driver,LoginPageUI.PASSWORD_OR_EMAIL_WRONG);
+    }
+
+    public UserRegisterPageObject goToUserRegister(){
+        clickToElements(driver, AdminBasePageUI.BUTTON_BY_SPAN,"Create an Account");
+        return PageGeneratorManager.openUserRegister(driver);
     }
 }

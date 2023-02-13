@@ -133,12 +133,12 @@ public class BaseTest {
             }
             case CHROME:{
 //                File file = new File(GlobalConstants.BROWSER_EXTENTSION_PATH + "chrome_extension_2_0_12_0.crx");
-                ChromeOptions chromeOptions =new ChromeOptions();
-//                chromeOptions.addExtensions(file);
-//                chromeOptions.addArguments("--lang=en");
-                chromeOptions.addArguments("--user-data-dir=C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User Data\\");
-                chromeOptions.addArguments("--profile-directory=Profile 1");
-                driver = new ChromeDriver(chromeOptions);
+//                ChromeOptions chromeOptions =new ChromeOptions();
+////                chromeOptions.addExtensions(file);
+////                chromeOptions.addArguments("--lang=en");
+//                chromeOptions.addArguments("--user-data-dir=C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User Data\\");
+//                chromeOptions.addArguments("--profile-directory=Profile 1");
+                driver = new ChromeDriver();
                 break;
             }
             case CHROME_HEADLESS:{
@@ -152,6 +152,7 @@ public class BaseTest {
                 break;
             }
         }
+        driver.manage().window().maximize();
         driver.get("http://live.techpanda.org/index.php/");
         return driver;
     }

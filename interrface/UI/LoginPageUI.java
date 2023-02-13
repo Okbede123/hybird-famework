@@ -11,4 +11,5 @@ public class LoginPageUI {
     public static final String PASSWORD_OR_EMAIL_WRONG = "//li[@class='error-msg']//span";
 
 
+
 }

@@ -11,6 +11,7 @@ import src2.actions.pageObjects.UserHomePageObject;
 import src2.actions.pageObjects.admin.AdminLoginPageObject;
 import src2.actions.pageObjects.pageObjectNavigation.FooterContainPageObject;
 import src2.interrface.UI.AdminUI.AdminBasePageUI;
+import src2.interrface.UI.MyDashBoardUI;
 
 import java.time.Duration;
 import java.util.List;
@@ -164,6 +165,7 @@ public class BasePage {
     }
 
     public void clickToElementByXpath(WebDriver driver, String element){
+        waitElementclick(driver,element);
         searchElementByXpath(driver,element).click();
     }
 
@@ -521,8 +523,8 @@ public class BasePage {
     }
 
     public UserHomePageObject clickLogOutHomePageAdmin(WebDriver driver){
-        waitElementclick(driver, AdminBasePageUI.LOG_OUT_LOCATOR);
-        clickToElementByXpath(driver,AdminBasePageUI.LOG_OUT_LOCATOR);
+        clickToElements(driver, MyDashBoardUI.LOGOUTHOVE);
+        clickToElements(driver,AdminBasePageUI.LOG_OUT_LOCATOR);
         return PageGeneratorManager.getHomePage(driver);
     }
 

@@ -6,6 +6,8 @@ public class MyDashBoardUI {
 
     public static final String DISPLAY_SAVE_INFORMATION = "//li/span";
 
+    public static final String LOGOUTHOVE = "xpath=//a/span[text() ='Account']";
+
 
 
 

@@ -12,7 +12,7 @@
 <body>
 <h1>Run On Chrome</h1>
 <p>
-  Test duration: 4,523s
+  Test duration: 45,488s
 </p>
 
 
@@ -20,29 +20,28 @@
   <table class="resultsTable">
     <tr><th colspan="3" class="header failed">Failed Tests</th></tr>
           <tr>
-        <td colspan="3" class="group">testcases.comsortdata.Level_21_SortData</td>
+        <td colspan="3" class="group">testcases.companda.Level_22_FakerData</td>
       </tr>
             
 <tr>
   <td class="method">
-                  Sort_03_PriceAscending
+                  TC_05_Register_Success
       </td>
   <td class="duration">
-    0,131s
+    3,890s
   </td>
   <td class="result">
         
     
         
 
-        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.NumberFormatException: For input string: &quot;Sauce Labs Onesie&quot;</b></a><br />
+        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.RuntimeException: Locator is not valild</b></a><br />
     <div class="stackTrace" id="exception-0">
-              java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)<br />
-              java.base/jdk.internal.math.FloatingDecimal.parseFloat(FloatingDecimal.java:122)<br />
-              java.base/java.lang.Float.parseFloat(Float.java:455)<br />
-              java.base/java.lang.Float.valueOf(Float.java:419)<br />
-              src2.actions.pageObjects.SortLab.InventoryPageObject.isProductPriceSortAscending(InventoryPageObject.java:69)<br />
-              testcases.comsortdata.Level_21_SortData.Sort_03_PriceAscending(Level_21_SortData.java:47)<br />
+              src2.cores.commons.BasePage.getByLocator(BasePage.java:255)<br />
+              src2.cores.commons.BasePage.waitElementclickLocator(BasePage.java:513)<br />
+              src2.cores.commons.BasePage.clickToElements(BasePage.java:548)<br />
+              src2.cores.commons.BasePage.clickLogOutHomePageAdmin(BasePage.java:528)<br />
+              testcases.companda.Level_22_FakerData.TC_05_Register_Success(Level_22_FakerData.java:130)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -75,24 +74,28 @@
 </tr>
 <tr>
   <td class="method">
-                  Sort_04_PriceDescending
+                  TC_06_LoginWithIncorrectPassword
       </td>
   <td class="duration">
-    0,120s
+    31,048s
   </td>
   <td class="result">
         
     
         
 
-        <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse"><b>java.lang.NumberFormatException: For input string: &quot;Sauce Labs Fleece Jacket&quot;</b></a><br />
+        <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //input[@id =&apos;email&apos;] (tried for 30 second(s) with 500 milliseconds interval)<br/>
+Build info: version: &apos;4.5.0&apos;, revision: &apos;fe167b119a&apos;<br/>
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;11.0.12&apos;<br/>
+Driver info: org.openqa.selenium.chrome.ChromeDriver<br/>
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 110.0.5481.78, chrome: {chromedriverVersion: 110.0.5481.30 (aedb656755c4..., userDataDir: C:\Users\Admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49629}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:49629/devtoo..., se:cdpVersion: 110.0.5481.78, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}<br/>
+Session ID: 2ddd91f266eac715b0426c485e0f723e</b></a><br />
     <div class="stackTrace" id="exception-1">
-              java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)<br />
-              java.base/jdk.internal.math.FloatingDecimal.parseFloat(FloatingDecimal.java:122)<br />
-              java.base/java.lang.Float.parseFloat(Float.java:455)<br />
-              java.base/java.lang.Float.valueOf(Float.java:419)<br />
-              src2.actions.pageObjects.SortLab.InventoryPageObject.isProductPriceSortDescending(InventoryPageObject.java:55)<br />
-              testcases.comsortdata.Level_21_SortData.Sort_04_PriceDescending(Level_21_SortData.java:54)<br />
+              org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)<br />
+              org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)<br />
+              src2.cores.commons.BasePage.waitElementVisibilityLocators(BasePage.java:485)<br />
+              src2.cores.commons.BasePage.enterToTextBoxById(BasePage.java:584)<br />
+              testcases.companda.Level_22_FakerData.TC_06_LoginWithIncorrectPassword(Level_22_FakerData.java:139)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -126,41 +129,6 @@
       </table>
 
 
-  <table class="resultsTable">
-    <tr><th colspan="3" class="header passed">Passed Tests</th></tr>
-          <tr>
-        <td colspan="3" class="group">testcases.comsortdata.Level_21_SortData</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  Sort_01_NameAscending
-      </td>
-  <td class="duration">
-    0,404s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-<tr>
-  <td class="method">
-                  Sort_02_NameDescending
-      </td>
-  <td class="duration">
-    0,159s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-      </table>
   
 </body>
 </html>
