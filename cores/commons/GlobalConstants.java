@@ -24,7 +24,7 @@ public class GlobalConstants {
 
     //browser log
     public static final String BROWSER_LOG_PATH = PROJECT_PATH + "\\out\\" + "\\browserLogs";
-    public static final String BROWSER_EXTENTSION_PATH = PROJECT_PATH + "\\out\\" + "\\browserExtension";
+    public static final String BROWSER_EXTENTSION_PATH = PROJECT_PATH + "\\out\\" + "\\browserExtension\\";
 
     //html report folder
 

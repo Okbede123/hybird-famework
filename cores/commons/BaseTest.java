@@ -5,14 +5,21 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
 import src2.actions.pageObjects.UserHomePageObject;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -60,15 +67,84 @@ public class BaseTest {
         return driver;
     }
 
+    public WebDriver multipleBrowserEnum_SwitchCase_DemoSortData(String browser,String url){
+        switch (BrowserList.valueOf(browser.toUpperCase())){
+            case FIREFOX:
+            {
+                FirefoxProfile ffProfile = new FirefoxProfile();
+                File firefoxTranslateFile = new File(GlobalConstants.BROWSER_EXTENTSION_PATH + "firefox_to_google_translate-4.2.0.xpi");
+                ffProfile.addExtension(firefoxTranslateFile);
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.setProfile(ffProfile);
+                //firefoxOptions.addPreference("intl.accept_languages","vi-vn,vi,en-us,en");
+                driver = new FirefoxDriver(firefoxOptions);
+                break;
+            }
+            case FIREFOX_HEADLESS:
+            {
+                FirefoxOptions options = new FirefoxOptions();
+                options.setHeadless(true);
+                driver = new FirefoxDriver(options);
+                break;
+            }
+            case CHROME:{
+//                File file = new File(GlobalConstants.BROWSER_EXTENTSION_PATH + "chrome_extension_2_0_12_0.crx");
+//                ChromeOptions chromeOptions =new ChromeOptions();
+//                chromeOptions.addExtensions(file);
+//                chromeOptions.addArguments("--lang=en");
+                driver = new ChromeDriver();
+                break;
+            }
+            case CHROME_HEADLESS:{
+                ChromeOptions chromeOptions_Headless = new ChromeOptions();
+                chromeOptions_Headless.setHeadless(true);
+                driver = new ChromeDriver(chromeOptions_Headless);
+                break;
+            }
+            case EDGE:{
+                driver = new EdgeDriver();
+                break;
+            }
+        }
+        driver.get(url);
+        driver.manage().window().maximize();
+        return driver;
+    }
+
     public WebDriver multipleBrowserEnum_SwitchCase(String browser){
         switch (BrowserList.valueOf(browser.toUpperCase())){
             case FIREFOX:
             {
-                driver = new FirefoxDriver();
+                FirefoxProfile ffProfile = new FirefoxProfile();
+                File firefoxTranslateFile = new File(GlobalConstants.BROWSER_EXTENTSION_PATH + "firefox_to_google_translate-4.2.0.xpi");
+                ffProfile.addExtension(firefoxTranslateFile);
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.setProfile(ffProfile);
+                //firefoxOptions.addPreference("intl.accept_languages","vi-vn,vi,en-us,en");
+                driver = new FirefoxDriver(firefoxOptions);
+                break;
+            }
+            case FIREFOX_HEADLESS:
+            {
+                FirefoxOptions options = new FirefoxOptions();
+                options.setHeadless(true);
+                driver = new FirefoxDriver(options);
                 break;
             }
             case CHROME:{
-                driver = new ChromeDriver();
+//                File file = new File(GlobalConstants.BROWSER_EXTENTSION_PATH + "chrome_extension_2_0_12_0.crx");
+                ChromeOptions chromeOptions =new ChromeOptions();
+//                chromeOptions.addExtensions(file);
+//                chromeOptions.addArguments("--lang=en");
+                chromeOptions.addArguments("--user-data-dir=C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User Data\\");
+                chromeOptions.addArguments("--profile-directory=Profile 1");
+                driver = new ChromeDriver(chromeOptions);
+                break;
+            }
+            case CHROME_HEADLESS:{
+                ChromeOptions chromeOptions_Headless = new ChromeOptions();
+                chromeOptions_Headless.setHeadless(true);
+                driver = new ChromeDriver(chromeOptions_Headless);
                 break;
             }
             case EDGE:{
@@ -204,7 +280,64 @@ public class BaseTest {
         }
     }
 
-//    protected WebDriver getDriverInstance() {
-//
-//    }
+    public void showBrowserConsoleLog(WebDriver driver){
+        if(driver.toString().contains("chrome")){
+            LogEntries logs = driver.manage().logs().get("browser");
+            List<LogEntry> logList = logs.getAll();
+            for (LogEntry logging: logList) {
+                if(logging.getLevel().toString().contains("error")){
+                    log.info("--------" + logging.getLevel().toString()+ "---------\n" + logging.getMessage());
+                }
+            }
+        }
+    }
+
+    protected void closeBrowserDriver() {
+        String cmd = null;
+        try {
+            String osName = GlobalConstants.OS_NAME;
+            log.info("OS name = " + osName);
+
+            String driverInstanceName = driver.toString().toLowerCase();
+            log.info("Driver instance name = " + driverInstanceName);
+
+            String browserDriverName = null;
+
+            if (driverInstanceName.contains("chrome")) {
+                browserDriverName = "chromedriver";
+            } else if (driverInstanceName.contains("internetexplorer")) {
+                browserDriverName = "IEDriverServer";
+            } else if (driverInstanceName.contains("firefox")) {
+                browserDriverName = "geckodriver";
+            } else if (driverInstanceName.contains("edge")) {
+                browserDriverName = "msedgedriver";
+            } else if (driverInstanceName.contains("opera")) {
+                browserDriverName = "operadriver";
+            } else {
+                browserDriverName = "safaridriver";
+            }
+
+            if (osName.contains("Windows")) {
+                cmd = "taskkill /F /FI \"IMAGENAME eq " + browserDriverName + "*\"";
+            } else {
+                cmd = "pkill " + browserDriverName;
+            }
+
+            if (driver != null) {
+                driver.manage().deleteAllCookies();
+                driver.quit();
+            }
+        } catch (Exception e) {
+            log.info(e.getMessage());
+        } finally {
+            try {
+                Process process = Runtime.getRuntime().exec(cmd);
+                process.waitFor();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

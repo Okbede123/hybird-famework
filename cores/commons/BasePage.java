@@ -271,9 +271,15 @@ public class BasePage {
         select.selectByVisibleText(value);
     }
 
-    public void selectByTextDropDownLocator(WebDriver driver,String element, String value, String...locator){
-        Select select = new Select(searchElementByLocator(driver,castRestParameter(element,locator)));
-        select.selectByVisibleText(value);
+    public void selectByTextDropDownLocator(WebDriver driver,String element, String value, String...values){
+        Select select = new Select(searchElementByLocator(driver,castRestParameter(element,values)));
+        select.selectByVisibleText(castRestParameter(value,values));
+    }
+
+    public void selectByTextDropDownLocatorMulti(WebDriver driver,String element, String value, String...values){
+        waitElementclickLocator(driver,element);
+        waitElementclickLocator(driver,value);
+        new Select(searchElementByLocator(driver,element)).selectByVisibleText(value);
     }
     public String getFirstSelectDropDown(WebDriver driver,By element){
         Select select = new Select(searchElementBy(driver,element));
@@ -475,6 +481,10 @@ public class BasePage {
 
     public void waitElementVisibilityLocators(WebDriver driver, String locator,String... values){
         new WebDriverWait(driver,Duration.ofSeconds(timeOut)).until(ExpectedConditions.visibilityOfElementLocated(getByLocator(castRestParameter(locator,values))));
+    }
+
+    public void waitElementVisibilityAllLocators(WebDriver driver, String locator,String... values){
+        new WebDriverWait(driver,Duration.ofSeconds(timeOut)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(getByLocator(castRestParameter(locator,values))));
     }
 
     public void waitElementInvisibilty(WebDriver driver, String locator){
