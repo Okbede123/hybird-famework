@@ -1,0 +1,11 @@
+{
+  "Login": {
+    "firstname": "autotest",
+    "lastname": "fc",
+    "password": "123123",
+    "email": "okbede",
+    "webEmail": "@gmail.com"
+  },
+  "address": "Vietnam",
+  "city": "ha noi"
+}

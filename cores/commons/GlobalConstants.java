@@ -33,4 +33,8 @@ public class GlobalConstants {
     public static final String ALLURE_PATH = PROJECT_PATH + "\\out\\" + "\\htmlAllure";
 
     public static final String JAVA_VERSION = System.getProperty("java.version");
+
+    //Data Test
+
+    public static final String DATA_TEST_PATH = PROJECT_PATH + "\\testdataa\\account.json";
 }

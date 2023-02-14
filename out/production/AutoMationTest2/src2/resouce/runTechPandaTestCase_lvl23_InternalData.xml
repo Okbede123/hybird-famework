@@ -12,7 +12,7 @@
     <test name = "Run On Chrome">
         <parameter name = "browser" value = "chrome"/>
         <classes>
-            <class name = "testcases.companda.Level_22_FakerData" />
+            <class name = "testcases.companda.Level_23_Into_Class_InternalFile" />
         </classes>
     </test>
 

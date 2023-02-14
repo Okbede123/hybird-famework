@@ -4,15 +4,15 @@
 
     <listeners>
         <listener class-name = "src2.cores.commons.MethodListener"></listener>
-        <listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
+<!--        <listener class-name="org.uncommons.reportng.HTMLReporter"></listener>-->
     </listeners>
 
-<!--    <parameter name = "url" value="https://www.saucedemo.com/inventory.html"/>-->
+    <parameter name = "url" value="https://admin-demo.nopcommerce.com/"/>
 
     <test name = "Run On Chrome">
         <parameter name = "browser" value = "chrome"/>
         <classes>
-            <class name = "testcases.companda.Level_22_FakerData" />
+            <class name = "testcases.companda.Level_25_Mutlple_Environment" />
         </classes>
     </test>
 

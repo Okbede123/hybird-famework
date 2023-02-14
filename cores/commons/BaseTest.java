@@ -111,6 +111,52 @@ public class BaseTest {
         return driver;
     }
 
+    public WebDriver multipleBrowserEnum_SwitchCase_Environment(String browser,String env){
+        switch (BrowserList.valueOf(browser.toUpperCase())){
+            case FIREFOX:
+            {
+                FirefoxProfile ffProfile = new FirefoxProfile();
+                File firefoxTranslateFile = new File(GlobalConstants.BROWSER_EXTENTSION_PATH + "firefox_to_google_translate-4.2.0.xpi");
+                ffProfile.addExtension(firefoxTranslateFile);
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.setProfile(ffProfile);
+                //firefoxOptions.addPreference("intl.accept_languages","vi-vn,vi,en-us,en");
+                driver = new FirefoxDriver(firefoxOptions);
+                break;
+            }
+            case FIREFOX_HEADLESS:
+            {
+                FirefoxOptions options = new FirefoxOptions();
+                options.setHeadless(true);
+                driver = new FirefoxDriver(options);
+                break;
+            }
+            case CHROME:{
+//                File file = new File(GlobalConstants.BROWSER_EXTENTSION_PATH + "chrome_extension_2_0_12_0.crx");
+//                ChromeOptions chromeOptions =new ChromeOptions();
+////                chromeOptions.addExtensions(file);
+////                chromeOptions.addArguments("--lang=en");
+//                chromeOptions.addArguments("--user-data-dir=C:\\Users\\Admin\\AppData\\Local\\Google\\Chrome\\User Data\\");
+//                chromeOptions.addArguments("--profile-directory=Profile 1");
+                driver = new ChromeDriver();
+                break;
+            }
+            case CHROME_HEADLESS:{
+                ChromeOptions chromeOptions_Headless = new ChromeOptions();
+                chromeOptions_Headless.setHeadless(true);
+                driver = new ChromeDriver(chromeOptions_Headless);
+                break;
+            }
+            case EDGE:{
+                driver = new EdgeDriver();
+                break;
+            }
+        }
+        driver.manage().window().maximize();
+        driver.get(getEnvironment(env));
+        return driver;
+    }
+
     public WebDriver multipleBrowserEnum_SwitchCase(String browser){
         switch (BrowserList.valueOf(browser.toUpperCase())){
             case FIREFOX:
@@ -175,6 +221,22 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIMEOUT, TimeUnit.SECONDS);
         driver.get(url);
         return driver;
+    }
+
+    public String getEnvironment(String env){
+        String envUrl = null;
+        Environment_List environment_list =Environment_List.valueOf(env.toUpperCase());
+        if(environment_list == Environment_List.DEV){
+            envUrl = "https://demo.nopcommerce.com/";
+        } else if (environment_list == Environment_List.TESTING) {
+            envUrl = "https://admin-demo.nopcommerce.com/";
+        } else if (environment_list == Environment_List.STAGING) {
+            envUrl = "http://staging-orangehrmlive.com/";
+        }
+        else if (environment_list == Environment_List.PRODUCTION){
+            envUrl = "http://production-orangehrmlive.com/";
+        }
+        return envUrl;
     }
 
 
